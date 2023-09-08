@@ -19,9 +19,9 @@ a{
 }
 
 button{
-    background-color:indianred;
+    background-color:#0079FF;
     color: #fff;
-    font-weight: 400;
+    font-weight: 500;
     border: none;
     border-radius: 0.3rem;
     padding: 0.5rem 1rem;
@@ -117,7 +117,7 @@ nav .nav-menu li a{
 }
 
 nav .nav-menu li:hover a{
-    color: indianred;
+    color: #0079FF;
 }
 
 
