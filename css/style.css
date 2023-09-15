@@ -40,6 +40,32 @@ button{
 button:hover{
     background-color: #0468dc;
 }
+
+/* ANIMATION ON SCROLL */
+.hidden {
+    opacity: 0;
+    filter: blur(2px);
+    transform: translateX(-100%);
+    transition: all .5s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+    /* work card transition*/
+    .work-card:nth-child(1),.work-card:nth-child(4){
+        transition-delay: 200ms;
+    }
+
+    .work-card:nth-child(2),.work-card:nth-child(5){
+        transition-delay: 100ms;
+    }
+
+/* END ANIMATION ON SCROLL */
+
 /* HEADER SECTION */
 /* Header */
 header{
@@ -175,21 +201,40 @@ nav .nav-menu li a:hover{
     flex-wrap: wrap;
 }
 
+/* work cards */
+
 .work-card-container .work-card{
     position: relative;
     width: 20rem;
-    height: 23rem;
+    height: 20rem;
     background-color: #333646;
     border-radius: 0.3rem;
-    transition: all 0.3s ease;
     overflow: hidden;
 }
-
-.work-card-container .work-card:hover{
-    background-color: #3c3f52;
+.work-card::after{
+    content: '';
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    position: absolute;
+    height: 0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(100, 148, 237, 0.735);
+    transition: all 0.3s ease;
 }
 
-/* cards */
+.work-card:hover::after{
+    content: 'Visit site';
+    backdrop-filter: blur(4px);
+    height: 100%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .work-card .card-img{
     position: relative;
     width: 100%;
@@ -220,15 +265,6 @@ nav .nav-menu li a:hover{
     color: white;
 }
 
-.work-card button{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    cursor: pointer;
-}
-
 /* ACHIEVEMENTS SECTION */
 .achievements-container{
     padding: 3rem 5rem;
@@ -250,6 +286,7 @@ nav .nav-menu li a:hover{
 .achievement{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
 .achievement .desc{
@@ -307,8 +344,7 @@ nav .nav-menu li a:hover{
 }
 
 .skill-card .skill-caption{
-    width:65%;
-    text-align: justify;
+    width:77%;
 }
 
 .skill-caption p{
@@ -436,6 +472,14 @@ ul li{
         font-size: 3rem;
     }
 
+/* ANIMATION ON SCROLL */
+    /* work card transition*/
+    .work-container .work-card-container .work-card{
+        transition-delay: 0ms;
+    }
+
+/* END ANIMATION ON SCROLL */
+
     header{
     display:grid;
     grid-template-columns: 1fr;
@@ -500,7 +544,7 @@ ul li{
 
     .work-card-container .work-card{
         width: 100%;
-        height: 25rem;
+        height: 20rem;
     }
     .work-card button{
         font-size: 1rem;
@@ -534,6 +578,7 @@ ul li{
 
     .skill-card .skill-caption{
         width: 100%;
+        text-align: justify;
     }
     .skill-card .skill-caption p{
         margin-bottom: 3.4rem;
@@ -565,6 +610,19 @@ ul li{
     .section-title{
         font-size: 3rem;
     }
+
+/* ANIMATION ON SCROLL */
+    /* work card transition*/
+    .work-container .work-card-container .work-card{
+        transition-delay: 0ms;
+    }
+    .work-container .work-card-container .work-card:nth-child(1),
+    .work-container .work-card-container .work-card:nth-child(3),
+    .work-container .work-card-container .work-card:nth-child(5){
+        transition-delay: 100ms;
+    }
+/* END ANIMATION ON SCROLL */
+
     /* HEADER SECTION */
     header{
     display:grid;
@@ -653,5 +711,11 @@ ul li{
         bottom: 1rem;
         font-size: 1.5rem;
         text-align: end;
+    }
+}
+
+@media(prefers-reduced-motion){
+    .hidden {
+        transition: none;
     }
 }
